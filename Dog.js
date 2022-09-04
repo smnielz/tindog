@@ -14,7 +14,7 @@ class Dog{
         if(hasBeenSwiped){
             message = "NOPE"
         }
-        return `<img src=${avatar}>
+        return `<img id="avatar-img" src=${avatar}>
         <h1>${name}, ${age}</h1>
         <p>${bio}</p>
         <h2 class=${hasBeenLiked?"liked":hasBeenSwiped?"nope":""}>${message}</h2>

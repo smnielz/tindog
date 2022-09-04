@@ -5,38 +5,53 @@ import Dog from "./Dog.js"
 document.getElementById("heart-button").addEventListener("click", like)
 document.getElementById("reject-button").addEventListener("click", dislike)
 
+
 function like(){
     dogo.hasBeenLiked = true
-    document.getElementById("page").innerHTML = dogo.getDogHtml()
-    console.log(document.getElementById("page").innerHTML)
-    nextDog()
-    document.getElementById("heart-button").disabled = true
-    setInterval(()=>{        
-        reload()
-        document.getElementById("heart-button").disabled = false
-    }, 1500)
+    dogo.hasBeenSwiped = false
+    setPageHtml()
 }
 
 function dislike(){
     dogo.hasBeenSwiped = true
-    document.getElementById("page").innerHTML = dogo.getDogHtml()
-    console.log(document.getElementById("page").innerHTML)
+    dogo.hasBeenLiked = false
+    setPageHtml()    
+}
+
+function swiped(){
+    setPageHtml()    
+}
+
+function setPageHtml()
+{
+    dogs.push(dogo)
+    reload()
     nextDog()
     document.getElementById("reject-button").disabled = true
-    setInterval(()=>{        
+    document.getElementById("heart-button").disabled = true
+    setTimeout(() => {
         reload()
         document.getElementById("reject-button").disabled = false
-    }, 1500)
+        document.getElementById("heart-button").disabled = false
+    }, 1000);
 }
+
 let dogo = new Dog(dogs.shift())
 
-function nextDog(){
-    if(dogs.length > 0)
-        dogo = new Dog(dogs.shift())
+function nextDog(){        
+    dogo = new Dog(dogs.shift())
+    
 }
 
 function reload(){
     document.getElementById("page").innerHTML = dogo.getDogHtml()
+    let element = document.getElementById("avatar-img")
+    if(element.addEventListener){
+        element.addEventListener("click", swiped, false);
+    }else{
+        element.attachEvent("on"+"click", swiped);
+ }
 }
 
 reload()
+
