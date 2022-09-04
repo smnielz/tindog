@@ -87,7 +87,8 @@ main img{
     transition: transform 250ms;
 }
 
-main img:hover{
+main img:hover,
+main img:focus{
     transform: scale(.99);
 }
 
@@ -116,12 +117,14 @@ button img{
     height: 4vh;
 }
 
-#reject-button:hover{
+#reject-button:hover,
+#reject-button:focus{
     background: #FFE7EF;
     transform: scale(1.1);
 }
 
-#heart-button:hover{
+#heart-button:hover,
+#heart-button:focus{
     background: #DBFFF4;
     transform: scale(1.1);
 }
