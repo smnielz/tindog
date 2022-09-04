@@ -90,6 +90,7 @@ main img{
 main img:hover,
 main img:focus{
     transform: scale(.99);
+    opacity: 0.2;
 }
 
 section{
@@ -133,5 +134,9 @@ button img{
 @media (min-width:550px){
     body{
         width: 600px;
+    }
+    main img:hover,
+    main img:focus{
+        opacity: 1;
     }
 }
