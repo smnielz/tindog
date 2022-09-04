@@ -5,7 +5,6 @@ import Dog from "./Dog.js"
 document.getElementById("heart-button").addEventListener("click", like)
 document.getElementById("reject-button").addEventListener("click", dislike)
 
-
 function like(){
     dogo.hasBeenLiked = true
     dogo.hasBeenSwiped = false
@@ -39,8 +38,7 @@ function setPageHtml()
 let dogo = new Dog(dogs.shift())
 
 function nextDog(){        
-    dogo = new Dog(dogs.shift())
-    
+    dogo = new Dog(dogs.shift())    
 }
 
 function reload(){
