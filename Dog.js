@@ -3,7 +3,7 @@ class Dog{
     constructor(data){
         Object.assign(this, data)
     }
-    
+    //<img id="avatar-img" src=${avatar}></img>
 
     getDogHtml(){
         const {name, avatar, age, bio, hasBeenLiked, hasBeenSwiped} = this
@@ -14,9 +14,11 @@ class Dog{
         if(hasBeenSwiped){
             message = "NOPE"
         }
-        return `<img id="avatar-img" src=${avatar}>
-        <h1>${name}, ${age}</h1>
-        <p>${bio}</p>
+        return `
+        <div id="something">
+            <h1>${name}, ${age}</h1>
+            <p>${bio}</p> 
+        </div>        
         <h2 class=${hasBeenLiked?"liked":hasBeenSwiped?"nope":""}>${message}</h2>
         `
     }

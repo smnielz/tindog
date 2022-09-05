@@ -4,6 +4,7 @@ import Dog from "./Dog.js"
 
 document.getElementById("heart-button").addEventListener("click", like)
 document.getElementById("reject-button").addEventListener("click", dislike)
+document.getElementById("page").addEventListener("click", swiped)
 
 function like(){
     dogo.hasBeenLiked = true
@@ -43,12 +44,13 @@ function nextDog(){
 
 function reload(){
     document.getElementById("page").innerHTML = dogo.getDogHtml()
-    let element = document.getElementById("avatar-img")
-    if(element.addEventListener){
-        element.addEventListener("click", swiped, false);
-    }else{
-        element.attachEvent("on"+"click", swiped);
- }
+    document.getElementById("page").style.backgroundImage = `url(${dogo.avatar})`
+    // let element = document.getElementById("avatar-img")
+    // if(element.addEventListener){
+    //     element.addEventListener("click", swiped, false);
+    // }else{
+    //     element.attachEvent("on"+"click", swiped);
+ //}
 }
 
 reload()
