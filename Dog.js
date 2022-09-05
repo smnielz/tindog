@@ -14,6 +14,7 @@ class Dog{
         if(hasBeenSwiped){
             message = "NOPE"
         }
+        
         return `
         <div id="something">
             <h1>${name}, ${age}</h1>
